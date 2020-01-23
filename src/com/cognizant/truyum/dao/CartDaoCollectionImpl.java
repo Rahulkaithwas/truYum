@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cognizant.truyum.dao;
 
 import java.util.ArrayList;
@@ -11,10 +8,6 @@ import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
-/**
- * @author t-Khader
- *
- */
 public class CartDaoCollectionImpl implements CartDao {
 
 	private static HashMap<Long, Cart> userCarts;
@@ -41,14 +34,10 @@ public class CartDaoCollectionImpl implements CartDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#addCartItem(long, long)
-	 */
+	
 	@Override
 	public void addCartItem(long userid, long menuItemId) {
-		// TODO Auto-generated method stub
+		
 		List<MenuItem> menuItemList;
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 		MenuItemDao menuItemDao = menuItemDaoCollectionImpl;
@@ -74,11 +63,6 @@ public class CartDaoCollectionImpl implements CartDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#getAllCartItems(long)
-	 */
 	@Override
 	public List<MenuItem> getAllCartItems(long userid)
 			throws CartEmptyException {
@@ -95,18 +79,21 @@ public class CartDaoCollectionImpl implements CartDao {
 		}
 		cart.setTotal(total);
 
-		// TODO Auto-generated method stub
+		
 		return menuItemList;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#removeCartItem(long, long)
-	 */
+	
 	@Override
 	public void removeCartItem(long userId, long menuitemid) {
-		// TODO Auto-generated method stub
+		Cart cart = userCarts.get(new Long(userId));
+		List<MenuItem> menuItemList = cart.getMenuItemList();
+		for (MenuItem menuItem : menuItemList) {
+			if(menuItem.getId()==menuitemid) {
+				menuItem=null;
+			}
+
+		}
 
 	}
 

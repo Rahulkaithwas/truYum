@@ -10,11 +10,11 @@ public class CartDaoCollectionImplTest {
 
 	public static void main(String[] args) throws CartEmptyException {
 		
-		testAddCartItem();
-
+		//testAddCartItem();
+		testRemoveCartItem();
 	}
 
-	static void testAddCartItem() throws CartEmptyException {
+	public static void testAddCartItem() throws CartEmptyException {
 
 		CartDaoCollectionImpl cartDaoCollectionImpl = new CartDaoCollectionImpl();
 		CartDao cartDao = cartDaoCollectionImpl;
@@ -24,12 +24,23 @@ public class CartDaoCollectionImplTest {
 
 	}
 
-	void testGetAllCartItems() {
-
+	public static void testGetAllCartItems() {
+	
 	}
 
-	void testRemoveCartItem() {
-
+	public static void testRemoveCartItem() {
+		CartDao cartDao = new CartDaoCollectionImpl();
+		cartDao.removeCartItem(1, 000004);
+		try {
+			
+			List<MenuItem> remainingItem = cartDao.getAllCartItems(1);
+			for(MenuItem menuItem : remainingItem) {
+				System.out.println(menuItem);
+			}
+		} catch (CartEmptyException e) {
+			System.out.println("There is no item");
+			e.printStackTrace();
+		}
 	}
 
 }

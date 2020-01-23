@@ -35,17 +35,6 @@ public class Cart {
 		return "Cart [menuItemList=" + menuItemList + ", total=" + total + "]";
 	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((menuItemList == null) ? 0 : menuItemList.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(total);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
-	}
 	
 	@Override
 	public boolean equals(Object obj) {

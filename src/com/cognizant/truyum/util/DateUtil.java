@@ -7,8 +7,7 @@ import java.util.Date;
 
 public class DateUtil {
 
-	public static Date convertToDate(String dateToBeConverted)
-			throws ParseException {
+	public static Date convertToDate(String dateToBeConverted) throws ParseException {
 
 		return new SimpleDateFormat("dd/MM/yyyy").parse(dateToBeConverted);
 

@@ -11,11 +11,11 @@ public class MenuItemDaoCollectionImplTest {
 
 	
 	public static void main(String[] args) throws ParseException {
-				// testGetMenuItemListAdmin();
+		//testGetMenuItemListAdmin();
 
-		// testGetMenuItemListCustomer();
+		testGetMenuItemListCustomer();
 
-		testModifyMenuItem();
+		//testModifyMenuItem();
 
 	}
 
