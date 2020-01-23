@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.cognizant.truyum.dao;
 
 import java.util.ArrayList;
@@ -11,10 +9,6 @@ import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
-/**
- * @author t-Khader
- *
- */
 public class CardDaoCollectionImpl implements CartDao {
 
 	private static HashMap<Long, Cart> userCarts;
@@ -43,11 +37,7 @@ public class CardDaoCollectionImpl implements CartDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#addCartItem(long, long)
-	 */
+	
 	@Override
 	public void addCartItem(long userid, long menuItemId) {
 		// TODO Auto-generated method stub
@@ -82,11 +72,7 @@ public class CardDaoCollectionImpl implements CartDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#getAllCartItems(long)
-	 */
+	
 	@Override
 	public List<MenuItem> getAllCartItems(long userid)
 			throws CartEmptyException {
@@ -107,11 +93,7 @@ public class CardDaoCollectionImpl implements CartDao {
 		return menuItemList;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.CartDao#removeCartItem(long, long)
-	 */
+	
 	@Override
 	public void removeCartItem(long userId, long menuitemid) {
 		// TODO Auto-generated method stub

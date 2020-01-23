@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.cognizant.truyum.dao;
 
 import java.text.ParseException;
@@ -11,10 +9,7 @@ import java.util.List;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
-/**
- * @author t-Khader
- *
- */
+
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	static List<MenuItem> menuItemList;
@@ -52,25 +47,17 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.MenuItemDao#getMenuItemListAdmin()
-	 */
+
 	@Override
 	public List<MenuItem> getMenuItemListAdmin() {
-		// TODO Auto-generated method stub
+		
 		return menuItemList;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.MenuItemDao#getMenuItemListCustomer()
-	 */
+
 	@Override
 	public List<MenuItem> getMenuItemListCustomer() {
-		// TODO Auto-generated method stub
+		
 		List<MenuItem> menuItemListCust = new ArrayList<MenuItem>();
 
 		Date today = new Date();
@@ -84,16 +71,10 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		return menuItemListCust;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.cognizant.truyum.dao.MenuItemDao#modifyMenuItem(com.cognizant.truyum
-	 * .model.MenuItem)
-	 */
+
 	@Override
 	public void modifyMenuItem(MenuItem menuItem) {
-		// TODO Auto-generated method stub
+		
 
 		for (MenuItem menuItemForModification : menuItemList) {
 
@@ -113,15 +94,10 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.cognizant.truyum.dao.MenuItemDao#getMenuItem(long)
-	 */
+
 	@Override
 	public MenuItem getMenuItem(long menuitemId) {
-		// TODO Auto-generated method stub
-
+		
 		for (MenuItem menuItem : menuItemList) {
 			if (menuitemId == menuItem.getId()) {
 				return menuItem;

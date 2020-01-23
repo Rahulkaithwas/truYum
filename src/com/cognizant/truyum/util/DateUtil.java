@@ -1,16 +1,10 @@
-/**
- * 
- */
+
 package com.cognizant.truyum.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * @author t-Khader
- *
- */
 public class DateUtil {
 
 	public static Date convertToDate(String dateToBeConverted)

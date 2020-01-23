@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.cognizant.truyum.dao;
 
 import java.text.ParseException;
@@ -9,18 +7,11 @@ import java.util.List;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
-/**
- * @author t-Khader
- *
- */
 public class MenuItemDaoCollectionImplTest {
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) throws ParseException {
-		// TODO Auto-generated method stub
-		// testGetMenuItemListAdmin();
+				// testGetMenuItemListAdmin();
 
 		// testGetMenuItemListCustomer();
 
