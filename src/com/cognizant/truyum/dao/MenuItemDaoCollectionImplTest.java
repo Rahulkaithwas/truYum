@@ -11,11 +11,12 @@ public class MenuItemDaoCollectionImplTest {
 
 	
 	public static void main(String[] args) throws ParseException {
-		//testGetMenuItemListAdmin();
-
+		System.out.println("only for admin");
+		testGetMenuItemListAdmin();
+		System.out.println("Only for customer");
 		testGetMenuItemListCustomer();
-
-		//testModifyMenuItem();
+		System.out.println("after modifying");
+		testModifyMenuItem();
 
 	}
 
@@ -23,8 +24,7 @@ public class MenuItemDaoCollectionImplTest {
 
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 
-		System.out.println("Menu Item List :"
-				+ menuItemDaoCollectionImpl.getMenuItemListAdmin());
+	
 
 		List<MenuItem> menuItems = menuItemDaoCollectionImpl
 				.getMenuItemListAdmin();

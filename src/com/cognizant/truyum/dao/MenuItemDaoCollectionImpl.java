@@ -31,12 +31,10 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 				menuItemList.add(new MenuItem(000004, "French Fries", 200.00f,
 						true, DateUtil.convertToDate("02/07/2017"),
 						"Main Course", false));
-				menuItemList.add(new MenuItem(000005, "Potota Chips", 10.00f,
-						true, DateUtil.convertToDate("14/11/2019"),
-						"Main Course", false));
-				menuItemList.add(new MenuItem(000006, "Rice", 10.00f, false,
-						DateUtil.convertToDate("02/08/2019"), "Main Course",
-						false));
+				menuItemList.add( new MenuItem(000005, "Choclate Brownie", 32.00f,
+						true, DateUtil.convertToDate("02/11/2022"), "Dessert",
+						true));
+				
 			} catch (ParseException pe) {
 
 				System.out.println("Parse exception " + pe.getMessage());

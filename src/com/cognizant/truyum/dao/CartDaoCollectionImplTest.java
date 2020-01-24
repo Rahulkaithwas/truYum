@@ -10,7 +10,8 @@ public class CartDaoCollectionImplTest {
 
 	public static void main(String[] args) throws CartEmptyException {
 		
-		//testAddCartItem();
+		testAddCartItem();
+		//testGetAllCartItems();
 		testRemoveCartItem();
 	}
 
@@ -19,13 +20,24 @@ public class CartDaoCollectionImplTest {
 		CartDaoCollectionImpl cartDaoCollectionImpl = new CartDaoCollectionImpl();
 		CartDao cartDao = cartDaoCollectionImpl;
 		cartDao.addCartItem(1, 000004);
+		cartDao.addCartItem(1, 000001);
 		List<MenuItem> menuItemList = cartDao.getAllCartItems(1);
 		System.out.println("MenuItem list :" + menuItemList);
 
 	}
 
 	public static void testGetAllCartItems() {
-	
+		CartDao cartDao = new CartDaoCollectionImpl();
+		List<MenuItem> menuItemList;
+		try {
+			menuItemList = cartDao.getAllCartItems(1);
+		} catch (CartEmptyException e) {
+			e.printStackTrace();
+			return;
+		}
+		for (MenuItem menuItem : menuItemList) {
+			System.out.println(menuItem);
+		}
 	}
 
 	public static void testRemoveCartItem() {
@@ -33,13 +45,12 @@ public class CartDaoCollectionImplTest {
 		cartDao.removeCartItem(1, 000004);
 		try {
 			
-			List<MenuItem> remainingItem = cartDao.getAllCartItems(1);
-			for(MenuItem menuItem : remainingItem) {
-				System.out.println(menuItem);
-			}
+			List<MenuItem> updatedmenuItem=cartDao.getAllCartItems(1);
+			System.out.println(updatedmenuItem);
+			
 		} catch (CartEmptyException e) {
-			System.out.println("There is no item");
-			e.printStackTrace();
+			System.out.println("Cart is empty");
+		
 		}
 	}
 

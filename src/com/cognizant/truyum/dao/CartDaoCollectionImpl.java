@@ -3,35 +3,20 @@ package com.cognizant.truyum.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 
 import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
-import com.cognizant.truyum.util.DateUtil;
 
 public class CartDaoCollectionImpl implements CartDao {
 
 	private static HashMap<Long, Cart> userCarts;
 
 	public CartDaoCollectionImpl() {
-
+		super();
 		if (userCarts == null) {
 			userCarts = new HashMap<Long, Cart>();
-			try {
-				MenuItem menuItem = new MenuItem(000002, "Cake", 80.00f, true,
-						DateUtil.convertToDate("11/12/2019"), "Main Course",
-						false);
-				List<MenuItem> menuItemList = new ArrayList<MenuItem>();
-				menuItemList.add(menuItem);
-
-				Cart cart = new Cart(menuItemList, 80.0);
-				Long user = new Long(1);
-				userCarts.put(user, cart);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
 		}
-
 	}
 
 	
@@ -39,11 +24,19 @@ public class CartDaoCollectionImpl implements CartDao {
 	public void addCartItem(long userid, long menuItemId) {
 		
 		List<MenuItem> menuItemList;
+		
+		
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 		MenuItemDao menuItemDao = menuItemDaoCollectionImpl;
-		menuItemDao.getMenuItem(menuItemId);
+		
+		
+		
 		Long userId = new Long(userid);
 		MenuItem menuItem = menuItemDao.getMenuItem(menuItemId);
+		
+		
+		
+		
 		if (userCarts.containsKey(userId)) {
 			Cart cart = userCarts.get(userId);
 			menuItemList = cart.getMenuItemList();
@@ -86,13 +79,12 @@ public class CartDaoCollectionImpl implements CartDao {
 	
 	@Override
 	public void removeCartItem(long userId, long menuitemid) {
-		Cart cart = userCarts.get(new Long(userId));
-		List<MenuItem> menuItemList = cart.getMenuItemList();
-		for (MenuItem menuItem : menuItemList) {
-			if(menuItem.getId()==menuitemid) {
-				menuItem=null;
+		Cart cart = userCarts.get(userId);
+		ListIterator<MenuItem> iterator = cart.getMenuItemList().listIterator();
+		while (iterator.hasNext()) {
+			if (iterator.next().getId() == menuitemid) {
+				iterator.remove();
 			}
-
 		}
 
 	}
